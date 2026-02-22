@@ -1,3 +1,3 @@
-module github.com/FrancisPatron/betterjson
+module github.com/fpatron/betterjson
 
 go 1.26.0
