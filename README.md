@@ -5,6 +5,12 @@
 
 `Better Json` is a Go library that enhances JSON parsing by supporting comments within JSON files.
 
+## Instalation
+To install `betterjson`, use `go get`:   
+```sh
+ go get github.com/fpatron/betterjson
+```
+
 ## Features
 
 - **Comment Support**: Easily parse JSON files with single-line and multi-line comments.
@@ -48,8 +54,3 @@ for a complete example checkout this [example code](https://github.com/FrancisPa
 ## How It Works
 `betterjson` offers a streamlined approach to parsing JSON files with comments. At its core, it employs a single, two-step function. First, the `uncommenter` strips away comments from the JSON content. Instead of simply removing comments, it replaces them with whitespaces, ensuring that the original structure and line count remain intact. This replacement is crucial, as it preserves the accuracy of line and column numbers. Once the comments are replaced, the standard `json.Unmarshal` function takes over, parsing the now-comment-free JSON. This approach ensures that any errors reported by `json.Unmarshal` accurately reflect the correct line and column numbers from the original file, providing precise feedback even in the presence of comments.
 
-## Instalation
-To install `betterjson`, use `go get`:   
-```sh
- go get github.com/FrancisPatron/betterjson
-```
