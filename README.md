@@ -2,7 +2,7 @@
 
 [![Go CI](https://github.com/fpatron/jsonc/actions/workflows/go.yml/badge.svg)](https://github.com/fpatron/jsonc/actions/workflows/go.yml)
 
-`jsonc` is a Go library that enhances JSON parsing by supporting comments within JSON files.
+`jsonc` is an extension of the JSON data format that allows single and multi line comments.
 
 ## Instalation
 To install `jsonc`, use `go get`:   
