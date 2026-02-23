@@ -1,6 +1,6 @@
-# betterjson/v2
+# jsonc/v2
 
-`betterjson/v2` is the experimental v2 variant of [betterjson](https://github.com/FrancisPatron/betterjson), backed by Go's [`encoding/json/v2`](https://pkg.go.dev/encoding/json/v2) package instead of `encoding/json`.
+`jsonc/v2` is the experimental v2 variant of [jsonc](https://github.com/fpatron/jsonc), backed by Go's [`encoding/json/v2`](https://pkg.go.dev/encoding/json/v2) package instead of `encoding/json`.
 
 ## Requirements
 
@@ -9,12 +9,12 @@
 ## Installation
 
 ```sh
-GOEXPERIMENT=jsonv2 go get github.com/fpatron/betterjson/v2
+GOEXPERIMENT=jsonv2 go get github.com/fpatron/jsonc/v2
 ```
 
 ## Differences from v1
 
-| | `betterjson` (v1) | `betterjson/v2` |
+| | `jsonc` (v1) | `jsonc/v2` |
 |---|---|---|
 | JSON backend | `encoding/json` | `encoding/json/v2` |
 | `Unmarshal` signature | `([]byte, interface{})` | `([]byte, any, ...json.Options)` |
@@ -33,7 +33,7 @@ import (
 	"log"
 	"os"
 
-	betterjson "github.com/fpatron/betterjson/v2"
+	jsonc "github.com/fpatron/jsonc/v2"
 )
 
 func main() {
@@ -43,7 +43,7 @@ func main() {
 	}
 
 	var example ExampleData
-	if err := betterjson.Unmarshal(data, &example); err != nil {
+	if err := jsonc.Unmarshal(data, &example); err != nil {
 		log.Fatalf("Failed to parse: %v", err)
 	}
 
@@ -57,15 +57,15 @@ The variadic `opts ...json.Options` parameter is passed directly to `encoding/js
 
 ```go
 import (
-	betterjson "github.com/fpatron/betterjson/v2"
+	jsonc "github.com/fpatron/jsonc/v2"
 	"encoding/json/v2"
 )
 
 // Reject unknown fields
-err := betterjson.Unmarshal(data, &cfg, json.RejectUnknownMembers(true))
+err := jsonc.Unmarshal(data, &cfg, json.RejectUnknownMembers(true))
 
 // Allow duplicate keys (opt back into v1-like behaviour)
-err := betterjson.Unmarshal(data, &cfg, jsontext.AllowDuplicateNames(true))
+err := jsonc.Unmarshal(data, &cfg, jsontext.AllowDuplicateNames(true))
 ```
 
 ## Building and testing
