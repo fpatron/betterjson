@@ -73,7 +73,7 @@ func TestUnmarshalWithComments(t *testing.T) {
 	}
 }
 
-func TestDecommenter(t *testing.T) {
+func TestStripComments(t *testing.T) {
 	tests := []struct {
 		name     string
 		input    string
@@ -222,7 +222,7 @@ World"}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := decomment([]byte(tt.input))
+			got := stripComments([]byte(tt.input))
 			if string(got) != tt.expected {
 				t.Errorf("\ntest: \"%s\"\ngot   \"%s\"\nwant  \"%s\"", tt.input, string(got), tt.expected)
 			} else {
